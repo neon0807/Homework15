@@ -1,5 +1,6 @@
 package dao;
 
+import model.City;
 import model.Employee;
 
 import java.util.List;
@@ -8,7 +9,8 @@ public interface EmployeeDAO {
 
     void create(Employee employee);
 
-    Employee readById(int id);
+
+    Employee readById(int id, String firstName, String lastName, String gender, int age, City city);
 
     List <Employee> readAll();
 

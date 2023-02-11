@@ -39,8 +39,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     }
 
+
+
     @Override
-    public Employee readById(int id) {
+    public Employee readById(int id, String firstName, String lastName, String gender, int age, City city) {
         Employee employee = new Employee(id, firstName, lastName, gender, age, city);
 
         try (PreparedStatement statement = connection.prepareStatement(
