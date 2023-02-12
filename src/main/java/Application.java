@@ -1,5 +1,8 @@
+import dao.CityDAO;
+import dao.CityDAOImpl;
 import dao.EmployeeDAO;
 import dao.EmployeeDAOImpl;
+import model.City;
 import model.Employee;
 
 import java.sql.*;
@@ -10,28 +13,23 @@ public class Application {
     public static void main(String[] args) throws SQLException {
 
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+        CityDAO cityDAO = new CityDAOImpl();
 
-        Employee book1 = new Employee(2, "zzz", "zzz", "man", 30, 3);
+        cityDAO.create(new City("5"));
 
-        employeeDAO.create(book1);
-
-
-        System.out.println(employeeDAO.readById(1));
-
-
-        List<Employee> list = employeeDAO.readAll();
-
-        for (Employee employee : list) {
-            System.out.println(employee);
-        }
-
-        Employee employee2 = new Employee(5, "xxx", "xxx", "woman", 27, 4);
+        City city = cityDAO.readById(5);
+        Employee employee1 = new Employee(5, "ooo", "ooo", "man", 35);
+        employee1.setCity(city);
+        employeeDAO.create(employee1);
 
 
-        employeeDAO.updateEmployee(employee2);
+        cityDAO.delete(city);
 
 
-        employeeDAO.delete(employee2);
+
+
+
+
 
     }
 }
