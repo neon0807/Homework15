@@ -10,6 +10,10 @@ public class Employee {
     private int age;
     private City city;
 
+    public Employee() {
+
+    }
+
     public Employee(int id, String firstName, String lastName, String gender, int age, City city) {
         this.id = id;
         this.firstName = firstName;
