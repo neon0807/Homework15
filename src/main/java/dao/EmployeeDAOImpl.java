@@ -39,9 +39,11 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     }
 
+
+
     @Override
     public Employee readById(int id) {
-        Employee employee = new Employee(id, firstName, lastName, gender, age, city);
+        Employee employee = new Employee();
 
         try (PreparedStatement statement = connection.prepareStatement(
                 "SELECT * FROM employee INNER JOIN city ON employee.city_id=city.city_id AND employee_id=(?)")) {
